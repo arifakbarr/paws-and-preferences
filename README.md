@@ -87,12 +87,8 @@ Beyond the core requirements, the app is implemented as follows.
 
 ## Repository and live site
 
-For submission or sharing, use the two links in **[DELIVERABLES.md](DELIVERABLES.md)**:
-
-1. **Hosted website** — GitHub Pages URL (e.g. `https://your-username.github.io/paws-and-preferences/`)
-2. **Source code** — Public GitHub repository URL (e.g. `https://github.com/your-username/paws-and-preferences`)
-
-After you create the repo and enable Pages (see **Deploy on GitHub Pages** above), fill in your username and repo name in `DELIVERABLES.md`.
+- **Hosted website:** `https://arifakbarr.github.io/paws-and-preferences/`
+- **Source code:** `https://github.com/arifakbarr/paws-and-preferences`
 
 ## License
 
