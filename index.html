@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#FDF6EC" />
+  <title>Paws &amp; Preferences 🐾</title>
+  <link rel="preconnect" href="https://cataas.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo">Paws <span>&</span> Preferences</div>
+      <div class="header-right">
+        <span class="liked-count" id="likedCount" aria-live="polite"></span>
+        <button type="button" class="btn-sound sound-on" id="btnSound" aria-label="Sound on" title="Sound on">🔊</button>
+        <div class="progress-wrap">
+          <div class="progress-dots" id="progressDots"></div>
+        </div>
+      </div>
+    </header>
+
+    <div id="swipeSection" class="swipe-section">
+      <div class="card-area" id="cardArea">
+        <p class="first-card-hint" id="firstCardHint">Swipe or tap the buttons below</p>
+        <div class="stack" id="cardStack"></div>
+        <div class="hint-left" id="hintLeft" aria-hidden="true"><span class="react-label">NOPE</span></div>
+        <div class="hint-right" id="hintRight" aria-hidden="true"><span class="react-label">LIKE</span></div>
+        <div class="loading" id="loading">
+          <div class="loader"></div>
+          <p id="loadingText">Rounding up some cute cats...</p>
+        </div>
+        <div class="error" id="error" hidden>
+          <p>Oops! The cats are hiding. Check your connection and try again.</p>
+          <button type="button" class="btn-retry" id="retryBtn">Try again</button>
+        </div>
+      </div>
+      <p class="hint" id="hint">Swipe right to like · Swipe left to pass</p>
+      <div class="btn-row">
+        <button type="button" class="btn btn-nope" id="btnDislike" aria-label="Pass">✕</button>
+        <button type="button" class="btn-undo" id="btnUndo" aria-label="Undo last swipe" hidden>Undo</button>
+        <button type="button" class="btn btn-like" id="btnLike" aria-label="Like">♥</button>
+      </div>
+      <p class="almost-done" id="almostDone" hidden>One more!</p>
+    </div>
+
+    <div id="summary" class="summary" hidden>
+      <div id="confettiContainer" class="confetti-container" aria-hidden="true"></div>
+      <div class="summary-content">
+        <div class="summary-header">
+          <div class="big-emoji" id="summaryEmoji">😸</div>
+          <p class="summary-celebration" id="summaryCelebration" hidden></p>
+          <p class="summary-personality" id="summaryPersonality" hidden></p>
+          <h1 id="summaryTitle">Your <em>purrfect</em> picks</h1>
+        </div>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-num green" id="statLiked">0</div>
+            <div class="stat-label">Liked</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-num red" id="statPassed">0</div>
+            <div class="stat-label">Passed</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-num mid" id="statTotal">0</div>
+            <div class="stat-label">Total</div>
+          </div>
+        </div>
+        <div class="liked-section">
+          <h3>Cats you loved</h3>
+          <p id="likedSubtitle">Your favourites, collected</p>
+        </div>
+        <div class="liked-grid" id="likedGrid"></div>
+        <div class="summary-actions">
+          <button type="button" class="btn-share" id="btnShare">Share my favourites</button>
+          <button type="button" class="restart-btn" id="btnRestart">Meet more cats 🐱</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="welcome-popup" class="welcome-popup hidden" role="dialog" aria-labelledby="welcome-title" aria-modal="true">
+    <div class="welcome-popup-backdrop"></div>
+    <div class="welcome-popup-content">
+      <p class="welcome-popup-greeting" aria-hidden="true">🐾</p>
+      <h2 id="welcome-title" class="welcome-popup-title">Welcome to Paws &amp; Preferences</h2>
+      <p class="welcome-popup-tagline">Swipe through cats and find your favourites.</p>
+      <p class="welcome-popup-text">
+        <span class="welcome-swipe like">Swipe right</span> to like · <span class="welcome-swipe nope">Swipe left</span> to pass.
+      </p>
+      <label class="welcome-dont-show"><input type="checkbox" id="welcomeDontShow" /> Don't show again this session</label>
+      <button type="button" class="welcome-popup-btn" id="welcomePopupBtn">Let's go</button>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox" hidden aria-modal="true" role="dialog">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <img id="lightboxImg" alt="Liked cat" />
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
